@@ -6,6 +6,127 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>About</title>
 </head>
+  <style>
+    
+body{
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.nav {
+  height: 100px;
+  width: 100%;
+  background-color: #FF6363;
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+}
+.nav > .nav-header {
+  display: inline;
+}
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 35px 10px 10px 10px;
+}
+.nav > .nav-btn {
+  display: none;
+}
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 35px 20px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+.nav > .nav-links > a:hover {
+  text-decoration: underline;
+}
+.nav > #nav-check {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #FF6363;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+  
+} /*-- End of Responsive--*/
+.heading{
+  z-index:-1;
+}
+.ox{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  background-color: #FF6363;
+  padding: 10px;
+  position: absolute;
+  top: 400px;
+  width: 100%;
+}
+h2{
+  font-size: 3vw;
+  text-align: center;
+  color: white;
+}
+.item1, .item2{
+  display: block;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 2vw;
+}
+  </style>
 <body>
 <div class="nav">
   <input type="checkbox" id="nav-check">
@@ -30,3 +151,17 @@
     <a href="cnycontactus.html" target="_blank">CONTACT US</a>
   </div>
 </div>
+<div class="heading">
+    <img class="ox"src="https://cdn.clipart.email/ab97f456d051ae5a5128b1bd82843810_clipart-family-chinese-new-year-clipart-family-chinese-new-year-_642-682.png" alt="Ox" width=300px height=auto>
+   </div>
+  <div class="grid-container">
+  <div class="item1">
+    <h2>History of the Festival</h2>
+    <p>2021 marks the 50th year that the festival has opened its doors. The Fair is the oldest event in San Diego County to celebrate the Chinese Lunar New Year. Last year, over 25,000 people joined in the annual celebration. There were over 50 food and commercial booths with continuous live performances on stage, lion and dragon dancers, cultural displays, and children’s arts and crafts.</p>
+    </div>
+  <div class="item2">
+    <h2>Behind the Scenes</h2>
+    <p> With the help from over 300 volunteers, we have been able to successfully open this festival for these past few decades. We start planning months before, working hard to provide the best experience. As the oldest Chinese community organization, we hope to provide charitable and benevolent activities, social welfare, and preserve the culture and traditions of Chinese people.</p>
+    </div>
+</body>
+</html>
