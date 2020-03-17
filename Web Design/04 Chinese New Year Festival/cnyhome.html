@@ -4,15 +4,515 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="cnyhome.css">
   <title>CNY Festival</title>
 </head>
+<style>
+body{
+  margin:0;
+  background-color: #D33F4B;
+}
+* {
+  box-sizing: border-box;
+}
+.nav {
+  height: 100px;
+  width: 100%;
+  background-color: #FF6363;
+  opacity: 0.9;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 35px 10px 10px 10px;
+}
+.nav > .nav-btn {
+  display: none;
+}
+.nav > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+.nav > .nav-links > a {
+  display: inline-block;
+  padding: 35px 20px 13px 10px;
+  text-decoration: none;
+  color: #efefef;
+}
+.nav > .nav-links > a:hover {
+  text-decoration: underline;
+}
+.nav > #nav-check {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #FF6363;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+.mySlides{
+  display: none;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+}
+.title{
+  color: black;
+  text-align: center;
+  margin: 85px;
+}
+.info{
+  position:absolute;
+  top: 860px;
+  width: 100%;
+  text-align: center;
+  
+  background-color: #D38F95;
+  border: 8px groove #C4858A;
+}
+h1{
+  font-size: 55px;
+}
+p{
+  font-size: 30px;
+}
+
+/*--Start of Grid CSS--*/
+@import url(https://fonts.googleapis.com/css?family=Francois+One);
+
+* {
+  box-sizing: border-box;
+}
+
+body{ font-family: "Francois One"; background-image: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/cream_dust.png) }
+
+.wrap{
+  width: 100%;
+  margin: auto;
+  padding: 0 10px;
+  background-color: rgba(255,255,255,0.9);
+  overflow: hidden;
+  box-shadow: 0 0 5px #eee;
+  position: absolute;
+  top: 1700px;
+}
+.image-grid{
+  max-width: 100%;
+  height: auto;
+}
+h4{ letter-spacing: 0.05em; font-weight: 400; }
+
+.row{
+
+}
+
+.more:link, .more:visited {
+  transition-duration: 0.2s;    
+  transition-timing-function: ease-out;
+}
+
+[class*='col-']{
+  float:left;   
+}
+
+.col-1-3{
+  width: 33.33%;
+  padding: 20px;
+}
+  
+.col-2-3{
+  width: 66.66%; 
+  padding: 20px;
+}
+
+.col-1-4{
+  width: 25%; 
+  padding: 10px;
+
+}
+
+.show{
+  width: 100%;
+  height: 100%;
+  float: left;
+  border: 1px solid rgba(0,0,0,0.04);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+  background: #fff;
+  display: block;
+  border-radius: 4px;
+}
+
+
+.aspect{
+  position: relative;
+  padding-bottom: 120%;
+  height: 0;
+  overflow: hidden;
+}
+
+.show .mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0
+}
+
+.show-first a.more {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px; 
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
+  position: relative;
+}
+
+.show-first a.more:hover {
+  box-shadow: 0 0 5px #fff;
+  background-color: #222;
+}
+
+.show-first p{
+  font-size: 28px; 
+}
+
+.show-first .mask {
+  opacity: 0;
+  background-color: rgba(255,255,255, 0.5);
+  transition: all 0.4s ease-in-out;
+}
+
+.show-first h4 {
+  color: #000;
+  margin-top: 50%;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-first p {
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+
+.show-first a.info{
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-first img{
+  transition: all 0.2s ease-in-out;
+}
+
+.show-first:hover img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);}
+
+.show-first:hover .mask {
+  opacity: 1;
+}
+.show-first:hover h2,
+.show-first:hover p,
+.show-first:hover a.info {
+  opacity: 1;
+}
+.show-first:hover p {
+  transition-delay: 0.1s;
+}
+.show-first:hover a.info {
+  transition-delay: 0.2s;
+}
+
+/* SECOND */
+
+.show-second a.more {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px; 
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
+  position: relative;
+}
+
+.show-second a.more:hover {
+  box-shadow: 0 0 5px #fff;
+  background-color: #222;
+}
+
+.show-second p{
+  font-size: 28px; 
+}
+
+.show-second .mask {
+  opacity: 0;
+  background-color: rgba(255,255,255, 0.5);
+  transition: all 0.4s ease-in-out;
+}
+
+.show-second h4 {
+  color: #000;
+  margin-top: 50%;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-second p {
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+
+.show-second a.info{
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-second img{
+  transition: all 0.2s ease-in-out;
+}
+
+.show-second:hover img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);}
+
+.show-second:hover .mask {
+  opacity: 1;
+}
+.show-second:hover h2,
+.show-second:hover p,
+.show-second:hover a.info {
+  opacity: 1;
+}
+.show-second:hover p {
+  transition-delay: 0.1s;
+}
+.show-second:hover a.info {
+  transition-delay: 0.2s;
+}
+
+/* THIRD */
+
+.show-third a.more {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px; 
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
+  position: relative;
+}
+
+.show-third a.more:hover {
+  box-shadow: 0 0 5px #fff;
+  background-color: #222;
+}
+
+.show-third p{
+  font-size: 28px; 
+}
+
+.show-third .mask {
+  opacity: 0;
+  background-color: rgba(255,255,255, 0.5);
+  transition: all 0.4s ease-in-out;
+}
+
+.show-third h4 {
+  color: #000;
+  margin-top: 50%;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-third p {
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+
+.show-third a.info{
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-third img{
+  transition: all 0.2s ease-in-out;
+}
+
+.show-third:hover img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);}
+
+.show-third:hover .mask {
+  opacity: 1;
+}
+.show-third:hover h2,
+.show-third:hover p,
+.show-third:hover a.info {
+  opacity: 1;
+}
+.show-third:hover p {
+  transition-delay: 0.1s;
+}
+.show-third:hover a.info {
+  transition-delay: 0.2s;
+}
+
+/* FOURTH */
+
+.show-fourth a.more {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px; 
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px #000;
+  position: relative;
+}
+
+.show-fourth a.more:hover {
+  box-shadow: 0 0 5px #fff;
+  background-color: #222;
+}
+
+.show-fourth p{
+  font-size: 28px; 
+}
+
+.show-fourth .mask {
+  opacity: 0;
+  background-color: rgba(255,255,255, 0.5);
+  transition: all 0.4s ease-in-out;
+}
+
+.show-fourth h4 {
+  color: #000;
+  margin-top: 50%;
+  opacity: 1;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-fourth p {
+  opacity: 0;
+  transition: all 0.2s linear;
+}
+
+.show-fourth a.info{
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.show-fourth img{
+  transition: all 0.2s ease-in-out;
+}
+
+.show-fourth:hover img {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+    -webkit-filter: grayscale(100%);}
+
+.show-fourth:hover .mask {
+  opacity: 1;
+}
+.show-fourth:hover h2,
+.show-fourth:hover p,
+.show-fourth:hover a.info {
+  opacity: 1;
+}
+.show-fourth:hover p {
+  transition-delay: 0.1s;
+}
+.show-fourth:hover a.info {
+  transition-delay: 0.2s;
+}
+h4{
+  font-size: 30px;
+}
+@media only screen and (max-width: 768px) { 
+  
+  .col-1-4{
+    width: 50%; 
+    padding: 10px;
+    overflow: hidden;
+    clear: right;
+  }
+
+  
+  .wrap{
+    width: 100%;
+    margin: auto;
+    overflow: hidden;}
+  
+  .mobile-clear{
+    clear:both;}
+
+}
+/*-- End of Grid CSS--*/
+</style>
 <body>
 <div class="nav">
   <input type="checkbox" id="nav-check">
   <div class="nav-header">
     <div class="nav-title">
-     Chinese New Year Festival
+      <img src="CNY Festival Logo.png">
     </div>
   </div>
   <div class="nav-btn">
@@ -32,9 +532,11 @@
   </div>
 </div>
   <div class="w3-content w3-section" style="width:30%">
-  <img class="mySlides w3-animate-top" src="Images/dragon.PNG" width= 100% height= auto>
-  <img class="mySlides w3-animate-bottom" src="Images/redlanterns.PNG" width=100% height=auto>
-  <img class="mySlides w3-animate-top" src="Images/paperlanterns.PNG" width=100% height=auto>
+  <img class="mySlides w3-animate-top" 
+src="https://bjournal.co/wp-content/uploads/2016/02/maxresdefault.jpg" width= 100% height= auto>
+  <img class="mySlides w3-animate-bottom" src="https://worldisthehouse.files.wordpress.com/2014/02/lanterns_released_sky_festival_chiang_mai_province_thailand_20121128.jpg" width=100% height=auto>
+  <img class="mySlides w3-animate-top" 
+       src="https://www.tripsavvy.com/thmb/oC-LsqcIcnrESAt_h4O9YDh5Emk=/4310x2424/smart/filters:no_upscale()/GettyImages-821407668-5c279f54c9e77c0001894cf7.jpg" width=100% height=auto>
 </div>
 
 <script>
@@ -53,12 +555,77 @@ function carousel() {
   setTimeout(carousel, 2500);    
 }
 </script>
+  <div class="info"> 
+  <h1>Chinese New Year Festival</h1>
+    <p>Date: January 25, 2021 <br>Time: 9:00am - 9:00pm<br>Location: <br> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3347.3909176663306!2d-117.15072838496525!3d32.96708678091502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dbf82042e0ec05%3A0x33d470abd0dd807c!2sWestview%20High%20School!5e0!3m2!1sen!2sus!4v1584310197441!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
+  </div> 
+    <!-- Start of Responsive Thing that I copied and pasted-->
+  <div class="wrap">
+<div class="row">
 
-   <div class="container">
-    <div class="item1">1</div>
-    <div class="item2">2</div>
-    <div class="item3">3</div>
+  
+</div>
+
+
+<div class="row">
+  
+  <div class="col-1-4">
+    <div class="show show-first">
+      <img class="image-grid" src="https://www.rotterdamcityblog.com/wp-content/uploads/2016/02/Tradional-Lion-Dance-Chinese-New-Year.jpg" />
+      
+      <div class="mask">
+        <h4>About</h4>
+        <a href="#" class="more">More info</a>
+      </div>
+    
+    </div>
+  
   </div>
+  
+  <div class="col-1-4">
+    <div class="show show-second">
+      <img class="image-grid" src="https://gia.info.gov.hk/general/201802/23/P2018022300819_photo_1132048.jpg" />
+      
+      <div class="mask">
+        <h4>Vendors</h4>
+        <a href="#" class="more">More info</a>
+      </div>
+    
+    </div>
+  
+  </div>
+  
+  <div class="mobile-clear"></div>
+  
+  <div class="col-1-4">
+    <div class="show show-third">
+      <img class="image-grid" src="https://i0.wp.com/hedonistshedonist.com/wp-content/uploads/2018/02/IMG_3715.jpg?fit=600%2C800&ssl=1"/>
+      
+      <div class="mask">
+        <h4>Sponsors</h4>
+        <a href="#" class="more">More info</a>
+      </div>
+    
+    </div>
+  
+  </div>
+  
+  <div class="col-1-4">
+    <div class="show show-fourth">
+      <img class="image-grid" src="http://www.liveside.net/wp-content/images/2013/09/Windows-Phone-8.1-photo-600x800.jpg" />
+      
+      <div class="mask">
+        <h4>Contact Us</h4>
+        <a href="#" class="more">More info</a>
+      </div>
+    
+    </div>
+  
+  </div>
+    
+</div> 
+</div>
+  <!-- End of grid-->
   
 </body>
 </html>
