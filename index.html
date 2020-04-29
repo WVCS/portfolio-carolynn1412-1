@@ -1,40 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Projects</title>
+  <title>Carolyn Hsu</title>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300">
+      <link rel="stylesheet" href="style.css">
 </head>
+  
   <style>
-    body{
-      background-color: #F3FFBD;
-    }
-    h1{
-      font-size: 50px;
-      color: #247BA0
-    }
-    p{
-      font-size: 40px
-    }
-    a{
-      color: #70C1B3;
-      text-decoration: none;
-      padding: 10px;
-      border: 2px dotted #FF1654;
-    }
-    a:hover{
-      padding: 25px;
-      background-color: #B2DBBF;
-    }
+  body{
+  background: #E5E6E4;
+  font: normal 300 18px "Roboto", sans-serif;
+}
+
+#menu-nav {
+  max-width: 1300px;
+  margin: 50px auto;
+  background-color: #CFD2CD;
+  border-radius: 10px;
+}
+
+#navigation-bar ul {
+  border-radius: 4px;
+  overflow: hidden;
+}
+#navigation-bar li {
+  float: left;
+  width: 20%;
+}
+#navigation-bar li:hover a::before {
+  right: 0;
+  left: 0;
+}
+#navigation-bar a {
+  color: #847577;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  left: 200px;
+  padding: 20px 0;
+  display: block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+#navigation-bar a:hover {
+  color: #A6A2A2;
+}
+#navigation-bar a::before {
+  content: "";
+  transition: all 0.4s ease-in-out;
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: 0;
+  height: 2px;
+  background-color: #A6A2A2;
+}
+#navigation-bar a:hover::before {
+  right: 0;
+  left: 0;
+}
+
+li {
+	list-style: none;
+}
   </style>
-  <body><center>
-    <br><br><h1> My Projects</h1><br>
-    <p>
-    <a href="Web Design/01 Milky Way/milkywayhome.html">Noun Project</a> <br><br>
-    <a href="Web Design/02 Cupcakes vs Muffins/cupcakehome.html">Convince Project</a><br><br>
-    <a href="Web Design/03 Bing Bing Cafe/bingbinghome.html">Food Project</a><br><br>
-    <a href="Web Design/04 Chinese New Year Festival/cnyhome.html">Event Project</a><br><br>
-    </p></center>
+  
+<body>
+
+  <div id="menu-nav">
+  <div id="navigation-bar">
+    <ul>
+      <li><a href="index.html"><i class="fa fa-home"></i> &nbsp;HOME</br></a></li>
+      <li><a href="aboutme.html"><i class="fa fa-user"></i> &nbsp;ABOUT ME</span></a></li>
+      <li><a href="mywebsites.html"><i class="fa fa-folder-open"></i> &nbsp;MY WEBSITES</span></a></li>
+     </ul>
+  </div>
+  </div>
+<img src="Web Design/indeximg.html">
 </body>
+
 </html>
+
